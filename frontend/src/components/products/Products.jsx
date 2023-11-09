@@ -5,7 +5,7 @@ function Products(props) {
     const [products, setProducts] = useState({ flag: false, productList: null });
 
     async function getData() {
-        let backend_url = 'http://localhost:3300/product';
+        let backend_url = 'http://localhost:3300/products';
         let response = await fetch(backend_url);
         let responseData = await response.json();
         setProducts({ flag: true, productList: responseData['productItems'] });
@@ -34,8 +34,7 @@ function Products(props) {
                             </div>
 
                             <div>
-                                <button className='product-add-button'
-                                    onClick={() => props.handleAddProduct(item)}>
+                                <button className='product-add-button' onClick={() => props.handleAddProduct(item)}>
                                     Add to Cart
                                 </button>
                             </div>
