@@ -13,9 +13,38 @@ function Products(props) {
 
     useEffect(() => { getData() }, []);
 
-    return (
-        <div>Products</div>
-    )
+    return ((products.flag) ?
+        <div className='products-container'>
+            <div className='products'>
+                {products.productList.map(item => {
+                    return (
+                        <div className='card' key={item.name}>
+                            <div>
+                                <img className='product-image' src={item.image} alt={item.image} />
+                            </div>
+
+                            <div>
+                                <h2 className='product-name'>
+                                    {item.name}
+                                </h2>
+                            </div>
+
+                            <div className='product-price'>
+                                Rs.{item.price}
+                            </div>
+
+                            <div>
+                                <button className='product-add-button'
+                                    onClick={() => props.handleAddProduct(item)}>
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    )
+                })}
+            </div>
+        </div> : <div><h1>Loading..!!</h1></div>
+    );
 }
 
 export default Products
