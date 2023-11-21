@@ -17,6 +17,7 @@ function Header(props) {
                 <ul>
                     <li>
                         <Link to="/">
+                            <i class="fa-solid fa-house-chimney-window" />
                             Home
                         </Link>
                     </li>
@@ -25,6 +26,7 @@ function Header(props) {
                 <ul>
                     <li>
                         <Link to="/signup">
+                            <i class="fa-solid fa-right-to-bracket" />
                             SignUp
                         </Link>
                     </li>
@@ -33,7 +35,7 @@ function Header(props) {
                 <ul>
                     <li>
                         <Link to="/cart" className='cart'>
-                            <i className='' />
+                            <i class="fa-solid fa-cart-shopping" />
                             <span className='cart-length'>
                                 {props.cartItems.length}
                             </span>

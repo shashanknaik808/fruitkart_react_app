@@ -35,7 +35,8 @@ function Products(props) {
                             </div>
 
                             <div>
-                                <button className='product-add-button' onClick={() => props.handleAddProduct(item)}>
+                                <button className='product-add-button'
+                                    onClick={() => props.handleAddProduct(item)}>
                                     Add to Cart
                                 </button>
                             </div>
