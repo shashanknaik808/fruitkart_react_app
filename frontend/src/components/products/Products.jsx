@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Products.css';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 function Products(props) {
 
@@ -16,6 +18,15 @@ function Products(props) {
 
     return ((products.flag) ?
         <div className='products-container'>
+            <div className="sort-button">
+                <DropdownButton variant="success" title="Sort By ">
+                    <Dropdown.Item eventKey="1" onClick={sortAlphebetAcending}>A -to- Z</Dropdown.Item>
+                    <Dropdown.Item eventKey="2" onClick={sortAlphebetDecending}>Z -to- A</Dropdown.Item>
+                    <Dropdown.Divider />
+                    <Dropdown.Item eventKey="3" onClick={sortPriceDecending}>High to Low</Dropdown.Item>
+                    <Dropdown.Item eventKey="4" onClick={sortPriceAcending}>Low to High</Dropdown.Item>
+                </DropdownButton>
+            </div>
             <div className='products'>
                 {products.productList.map(item => {
                     return (
