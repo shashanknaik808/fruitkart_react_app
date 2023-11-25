@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/header/Header.jsx';
+import React, { useState } from 'react';
 import Products from './components/products/Products.jsx';
-import SignUp from './components/signup/SignUp.jsx';
+import Signup from './components/signup/SignUp.jsx';
 import Cart from './components/cart/Cart.jsx';
+import Header from './components/header/Header.jsx';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
+
 
     const [cartItems, setCartItems] = useState([]);
 
@@ -51,18 +52,19 @@ function App() {
     }
 
 
+
     return (
-        <div className='App'>
-            <BrowserRouter>
-                <Header />
-                <Routes>
-                    <Route exact path="/" element={<Products handleAddProduct={handleAddProduct} />} />
-                    <Route exact path="/signup" element={<SignUp />} />
-                    <Route exact path="/cart" element={<Cart cartItems={cartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearence={handleCartClearence} />} />
-                </Routes>
-            </BrowserRouter>
-        </div>
+        <BrowserRouter>
+            <Header cartItems={cartItems} />
+            <Routes>
+                <Route exact path='/' element={<Products handleAddProduct={handleAddProduct} />} />
+                <Route exact path='/signup' element={<Signup />} />
+                <Route exact path='/cart' element={<Cart cartItems={cartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearence={handleCartClearence} />} />
+            </Routes>
+        </BrowserRouter>
     );
 }
 
 export default App;
+
+
