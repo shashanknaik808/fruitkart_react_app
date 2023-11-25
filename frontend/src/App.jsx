@@ -1,9 +1,16 @@
-import React from 'react';
-import './App.css'
+import React, { useState } from 'react';
+import './App.css';
 
 function App() {
+
+    const [cartItems, setCartItems] = useState([]);
+
     return (
-        <div>Hello World</div>
+        <div className='App'>
+            <BrowserRouter>
+            
+            </BrowserRouter>
+        </div>
     )
 }
 
