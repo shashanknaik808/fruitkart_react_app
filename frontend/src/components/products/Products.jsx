@@ -37,6 +37,11 @@ function Products(props) {
         setProducts(productsCopy.sort((a, b) => a.price - b.price));
     }
 
+    function sortPriceDecending() {
+        let productsCopy = [...products];
+        setProducts(productsCopy.sort((a, b) => b.price - a.price));
+    }
+
     return ((products.flag) ?
         <div className='products-container'>
             <div className="sort-button">
