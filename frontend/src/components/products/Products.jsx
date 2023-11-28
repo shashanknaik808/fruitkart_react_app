@@ -16,41 +16,39 @@ function Products(props) {
 
     useEffect(() => { getData() }, []);
 
-    function sortAlphebetAcending() {
-        let productsCopy = [...products];
-        let sorted = productsCopy.sort((a, b) => {
-            return (a.name.toLowerCase() < b.name.toLowerCase()) ? -1 : 1;
-        });
-        setProducts(sorted);
+    function sortAlphebetAscending() {
+        let productListCopy = [...products.productList];
+        let sorted = productListCopy.sort((a, b) => (a.name.toLowerCase() < b.name.toLowerCase()) ? -1 : 1);
+        setProducts({ flag: true, productList: sorted });
     }
 
-    function sortAlphebetDecending() {
-        let productsCopy = [...products];
-        let sorted = productsCopy.sort((a, b) => {
-            return (a.name.toLowerCase() < b.name.toLowerCase()) ? 1 : -1;
-        });
-        setProducts(sorted);
+    function sortAlphebetDescending() {
+        let productListCopy = [...products.productList];
+        let sorted = productListCopy.sort((a, b) => (a.name.toLowerCase() < b.name.toLowerCase()) ? 1 : -1);
+        setProducts({ flag: true, productList: sorted });
     }
 
-    function sortPriceAcending() {
-        let productsCopy = [...products];
-        setProducts(productsCopy.sort((a, b) => a.price - b.price));
+    function sortPriceAscending() {
+        let productListCopy = [...products.productList];
+        let sorted = productListCopy.sort((a, b) => a.price - b.price);
+        setProducts({ flag: true, productList: sorted });
     }
 
-    function sortPriceDecending() {
-        let productsCopy = [...products];
-        setProducts(productsCopy.sort((a, b) => b.price - a.price));
+    function sortPriceDescending() {
+        let productListCopy = [...products.productList];
+        let sorted = productListCopy.sort((a, b) => b.price - a.price);
+        setProducts({ flag: true, productList: sorted });
     }
 
     return ((products.flag) ?
         <div className='products-container'>
             <div className="sort-button">
                 <DropdownButton variant="success" title="Sort By ">
-                    <Dropdown.Item eventKey="1" onClick={sortAlphebetAcending}>A -to- Z</Dropdown.Item>
-                    <Dropdown.Item eventKey="2" onClick={sortAlphebetDecending}>Z -to- A</Dropdown.Item>
+                    <Dropdown.Item eventKey="1" onClick={sortAlphebetAscending}>A -to- Z</Dropdown.Item>
+                    <Dropdown.Item eventKey="2" onClick={sortAlphebetDescending}>Z -to- A</Dropdown.Item>
                     <Dropdown.Divider />
-                    <Dropdown.Item eventKey="3" onClick={sortPriceDecending}>High to Low</Dropdown.Item>
-                    <Dropdown.Item eventKey="4" onClick={sortPriceAcending}>Low to High</Dropdown.Item>
+                    <Dropdown.Item eventKey="3" onClick={sortPriceDescending}>High to Low</Dropdown.Item>
+                    <Dropdown.Item eventKey="4" onClick={sortPriceAscending}>Low to High</Dropdown.Item>
                 </DropdownButton>
             </div>
             <div className='products'>
